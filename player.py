@@ -1,8 +1,10 @@
+import items
+
 class player():
     def __init__(self):
         self.x = 3
         self.y = 4
-        self.inventory = []
+        self.inventory = [items.daggar(), items.oldKey()]
         self.weapons = []
         self.health = 20
     
@@ -13,5 +15,5 @@ class player():
         self.player.health += damage
 
     def checkInventory(self):
-        for i in range(len(self.inventory)):
-            print(self.inventory[i])
+        for item in self.inventory:
+            print(item.name)

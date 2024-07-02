@@ -2,7 +2,7 @@ import command, level, player
 
 player = player.player()
 level = level.level()
-handler = command.commandHandler(player)
+handler = command.commandHandler(player, level)
 
  
 while True:

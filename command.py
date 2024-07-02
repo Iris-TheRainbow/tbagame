@@ -1,6 +1,7 @@
 class commandHandler():
-    def __init__(self, player):
+    def __init__(self, player, level):
         self.player = player
+        self.level = level
         self.command = ''
 
     def manual(self):
@@ -18,6 +19,10 @@ class commandHandler():
     
     def inputCommand(self):
         self.command = input("What would you like to do?\n")
+    
+    def checkInventory(self):
+        self.player.checkInventory()
+        input()
 
     def sanatizeCommand(self):
         command = self.command
@@ -50,6 +55,8 @@ class commandHandler():
             self.player.x += -1
         elif command == 'help':
             self.manual()
+        elif command == 'inventory':
+            self.checkInventory()
         else:
             self.commandNotFound()
     
