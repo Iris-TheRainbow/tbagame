@@ -3,15 +3,18 @@ class commandHandler():
         self.player = player
         self.command = ''
 
-    def manual():
+    def manual(self):
         print('movement:\nmove arond the map wiht cardinal directions (Nprth, South, East, West)')
         print('You can also move around with normal directions (Up, Down, Left, Right)')
         print('they may also start with \'go\'')
         input()
 
-    def commandNotFound():
-        print("command not found, try something else (enter to continue)")
+    def commandNotFound(self):
+        print("command not found, try something else (press enter to continue)")
         input()
+    
+    def emptyCommand(self):
+        print('please enter an action (press enter to continue)')
     
     def inputCommand(self):
         self.command = input("What would you like to do?\n")
@@ -29,9 +32,24 @@ class commandHandler():
             command = 'left'
         elif command == 'west':
             command = 'right'
+        elif command == 'manual':
+            command = 'help'
+        elif command == 'man':
+            command = 'help'
         self.command = command
     
     def parseCommand(self):
         command = self.command
-        
-        
+        if command == 'up':
+            self.player.y += 1
+        elif command == 'down':
+            self.player.y += -1
+        elif command == 'left':
+            self.player.x += -1
+        elif command == 'right':
+            self.player.x += -1
+        elif command == 'help':
+            self.manual()
+        else:
+            self.commandNotFound()
+    

@@ -1,9 +1,11 @@
 import command, level, player
 
-player = player()
-process = command.commandHandler(player)
+player = player.player()
+level = level.level()
+handler = command.commandHandler(player)
+
  
 while True:
-    process.inputCommand()
-    process.sanatizeCommand()
-    process.parseCommand()
+    handler.inputCommand()
+    handler.sanatizeCommand()
+    handler.parseCommand()
