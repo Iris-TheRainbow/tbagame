@@ -1,3 +1,5 @@
+import savegame
+import items
 class commandHandler():
     def __init__(self, player, level):
         self.player = player
@@ -57,6 +59,14 @@ class commandHandler():
             self.manual()
         elif command == 'inventory':
             self.checkInventory()
+        elif command == 'give sword':
+            self.player.inventory.append(items.sword())
+        elif command.startswith('save '):
+            savegame.save(self.level, self.player, command[5:])
+        elif command.startswith('load '):
+            savegame.load(self.level, self.player, command[5: ])
+        elif command == 'exit':
+            exit()
         else:
             self.commandNotFound()
     

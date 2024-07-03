@@ -1,3 +1,4 @@
+#itemManfest = [daggar]
 class daggar():
     def __init__(self):
         self.type = 'weapon'
