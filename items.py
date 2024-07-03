@@ -18,3 +18,12 @@ class oldKey():
         self.type = 'key'
         self.name = 'old key'
         self.keylevel = 0
+    
+def giveItem(player, item):
+    if item == 'daggar':
+        player.inventory.append(daggar())
+    if item == 'sword':
+        print('sword')
+        player.inventory.append(sword())
+    if item == 'old key':
+        player.inventory.append(oldKey())

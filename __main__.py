@@ -8,4 +8,4 @@ handler = command.commandHandler(player, level)
 while True:
     handler.inputCommand()
     handler.sanatizeCommand()
-    handler.parseCommand()
+    handler.parseCommand(True)
