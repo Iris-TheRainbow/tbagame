@@ -7,7 +7,7 @@ class commandHandler():
         self.command = ''
 
     def manual(self):
-        print('movement:\nmove arond the map wiht cardinal directions (Nprth, South, East, West)')
+        print('movement:\nmove arond the map wiht cardinal directions (North, South, East, West)')
         print('You can also move around with normal directions (Up, Down, Left, Right)')
         print('they may also start with \'go\'')
         input()
