@@ -24,7 +24,6 @@ class commandHandler():
     
     def checkInventory(self):
         self.player.checkInventory()
-        input()
 
     def sanatizeCommand(self):
         command = self.command
@@ -45,28 +44,55 @@ class commandHandler():
             command = 'help'
         self.command = command
     
-    def parseCommand(self):
+    def parseCommand(self, debug = False):
         command = self.command
+        
+        if debug == True:
+            if command == 'where am i':
+                print((self.player.x, self.player.y))
+
+            elif command.startswith('give '):
+                self.items.give(self.player, command[5:])
+
+            elif command.startswith('Set Health '):
+                self.player.health = command[11:]
+
+            elif command.startswith('go to '):
+                self.player.x = input("x: ")
+                self.player.y = input("y: ")
+
         if command == 'up':
             self.player.y += 1
+
         elif command == 'down':
             self.player.y += -1
+
         elif command == 'left':
             self.player.x += -1
+
         elif command == 'right':
             self.player.x += -1
+
         elif command == 'help':
             self.manual()
+
         elif command == 'inventory':
             self.checkInventory()
-        elif command == 'give sword':
-            self.player.inventory.append(items.sword())
+
         elif command.startswith('save '):
             savegame.save(self.level, self.player, command[5:])
+
         elif command.startswith('load '):
-            savegame.load(self.level, self.player, command[5: ])
+            savegame.load(self.level, self.player, command[5:])
+
+        elif command == 'stats': 
+            print(self.player.health)
+            self.checkInventory()
+
         elif command == 'exit':
             exit()
+
         else:
             self.commandNotFound()
+    
     
