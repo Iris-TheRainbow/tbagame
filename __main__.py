@@ -9,3 +9,4 @@ while True:
     handler.inputCommand()
     handler.sanatizeCommand()
     handler.parseCommand(True)
+
